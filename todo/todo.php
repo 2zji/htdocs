@@ -1,21 +1,37 @@
 <?php
 session_start();
 
-// 로그인 여부 확인
-if (!isset($_SESSION['user_id'])) {
-    header('Location: index.php');
+// 로그인 상태 확인
+if (!isset($_SESSION['userid'])) {
+    header("Location: index.php"); // 로그인되지 않은 경우, 로그인 페이지로 리다이렉트
     exit();
 }
 
 // 데이터베이스 연결
 include('./db_conn.php');
 
-// 로그인 사용자 정보
-$user_id = $_SESSION['user_id'];
+// 할 일 추가 처리
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $userid = $_SESSION['userid']; // 로그인된 사용자의 ID를 사용
 
-// 할 일 목록 조회
-$sql = "SELECT * FROM tasks WHERE userid = '$user_id' ORDER BY created_at DESC";
+    $sql = "INSERT INTO tasks (userid, title, description, status, priority) 
+            VALUES ('$userid', '$title', '$description', 'pending', 'medium')";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('할 일이 추가되었습니다.');</script>";
+    } else {
+        echo "<script>alert('할 일 추가 실패: " . mysqli_error($conn) . "');</script>";
+    }
+}
+
+// 할 일 목록 가져오기
+$sql = "SELECT * FROM tasks WHERE userid = '{$_SESSION['userid']}' ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
+$tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -23,95 +39,53 @@ $result = mysqli_query($conn, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO 리스트</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        h2 {
-            text-align: center;
-        }
-        .task-list {
-            margin-top: 20px;
-        }
-        .task-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #fff;
-        }
-        .task-actions {
-            display: flex;
-            gap: 10px;
-        }
-        .task-actions button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .add-task-form {
-            margin-top: 20px;
-        }
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-    </style>
+    <title>할 일 관리</title>
+    <link rel="stylesheet" href="styles.css"> <!-- styles.css 연결 -->
 </head>
 <body>
     <div class="container">
-        <h2>TODO 리스트</h2>
+        <header>
+            <h1>할 일 관리</h1>
+            <a href="logout.php">로그아웃</a>
+        </header>
 
-        <!-- 할 일 목록 -->
-        <div class="task-list">
-            <?php while ($task = mysqli_fetch_assoc($result)): ?>
-                <div class="task-item">
-                    <div>
-                        <strong><?php echo htmlspecialchars($task['title']); ?></strong>
-                        <p><?php echo nl2br(htmlspecialchars($task['description'])); ?></p>
-                        <small><?php echo htmlspecialchars($task['created_at']); ?></small>
-                    </div>
-                    <div class="task-actions">
-                        <form method="POST" action="update_task.php">
-                            <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
-                            <input type="submit" value="완료">
-                        </form>
-                        <form method="POST" action="delete_task.php">
-                            <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
-                            <input type="submit" value="삭제">
-                        </form>
-                    </div>
-                </div>
-            <?php endwhile; ?>
+        <!-- 할 일 추가 버튼 -->
+        <button id="addTaskBtn" onclick="toggleAddTaskForm()">할 일 추가</button>
+
+        <!-- 할 일 추가 폼 (숨기기/보이기) -->
+        <div id="addTaskForm" style="display: none;">
+            <form method="POST" action="todo.php">
+                <label for="title">할 일 제목</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">할 일 설명</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <button type="submit" name="add_task">추가하기</button>
+            </form>
+            <button onclick="toggleAddTaskForm()">취소</button>
         </div>
 
-        <!-- 할 일 추가 -->
-        <form method="POST" action="add_task.php" class="add-task-form">
-            <h3>할 일 추가</h3>
-            <input type="text" name="title" placeholder="제목" required>
-            <textarea name="description" placeholder="내용" rows="4"></textarea>
-            <input type="submit" value="추가">
-        </form>
+        <!-- 할 일 목록 표시 -->
+        <h2>할 일 목록</h2>
+        <ul>
+            <?php foreach ($tasks as $task): ?>
+                <li>
+                    <strong><?= htmlspecialchars($task['title']) ?></strong> - <?= htmlspecialchars($task['description']) ?>
+                    <span>(상태: <?= htmlspecialchars($task['status']) ?>)</span>
+                    <!-- 할 일 삭제 버튼 -->
+                    <a href="delete_task.php?id=<?= $task['id'] ?>">삭제</a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
+
+    <script>
+        // 할 일 추가 폼 보이기/숨기기
+        function toggleAddTaskForm() {
+            const form = document.getElementById('addTaskForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
 </body>
 </html>

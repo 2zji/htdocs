@@ -1,66 +1,64 @@
+<?php
+session_start();
+
+// 로그인 처리
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 데이터베이스 연결
+    include('./db_conn.php');
+
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
+
+    // 비밀번호 확인 쿼리
+    $sql = "SELECT * FROM user WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+
+        // 비밀번호 확인
+        if (password_verify($passwd, $user['passwd'])) {
+            // 로그인 성공 시
+            $_SESSION['userid'] = $user['email']; // 세션에 이메일 저장
+
+            // 로그인 성공 시 todo.php로 리다이렉트
+            header("Location: todo.php");
+            exit();
+        } else {
+            echo "<script>alert('비밀번호가 틀렸습니다.');</script>";
+        }
+    } else {
+        echo "<script>alert('이메일을 확인하세요.');</script>";
+    }
+
+    // 데이터베이스 연결 종료
+    mysqli_close($conn);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Styled Table and Login</title>
+    <title>로그인</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <h2>로그인</h2>
 
-    <div class="container">
+    <form method="POST" action="index.php">
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required><br><br>
 
-        <table border>
-            <thead>
-                <tr>
-                    <td>번호</td>
-                    <td>아이디</td>
-                    <td>비밀번호</td>
-                    <td>ETC</td>
-                </tr>
-            </thead>
-            <hbody>
-                <?php
-                //1. mysql 접속
-                include('./db_conn.php');
+        <label for="passwd">비밀번호:</label>
+        <input type="password" id="passwd" name="passwd" required><br><br>
 
-                //연결 실패 시, 오류 문자 출력하기
-                if (!$conn) {
-                    die("연결 실패!" . mysqli_connect_error());
-                }
+        <input type="submit" value="로그인">
+    </form>
 
-                //2. 쿼리 날리기(내림차순)
-                $sql = "select * from user order by id desc";
-                $result = mysqli_query($conn, $sql);
-                //쿼리 날리기 실패 시, 오류 문자 출력하기
-                if (!$result) {
-                    die("쿼리 날리기 실패!" . mysqli_error($conn));
-                }
-                $cnt = mysqli_num_rows($result);
-                echo "cnt: " . $cnt;
-
-                //한 줄씩 가져오기
-                for ($i = 0; $i < $cnt; $i++) {
-                    $a = mysqli_fetch_row($result);
-                    echo "<tr><td>$a[0]</td><td>$a[1]</td><td>$a[2]</td><td><a href='update_from.php?idx=$a[0]'>수정 </a>
-                    <a href='delete.php?idx=$a[0]'>삭제</a></td></tr>";
-                }
-                /*mysqli_fetch_row($result);
-                $a = mysqli_fetch_row($result);
-                echo $a[0]."<br/>"; 번호
-                echo $a[1]."<br/>"; 아이디
-                echo $a[2]."<br/>"; 비밀번호
-                */
-                mysqli_close($conn);
-                ?>
-            </hbody>
-        </table>
-        <div class="center-login">
-            <a href="login.html" class="login-btn">Login</a>
-        </div>
-    </div>
-
+    <br>
+    
+    <a href="signup.php">회원가입</a>
 </body>
-
 </html>
