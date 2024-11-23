@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 리스트</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- 헤더 영역 -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h4">게시글 리스트</h1>
+            <button class="btn btn-primary" onclick="writePost()">글 작성하기</button>
+        </div>
+        
+        <!-- 게시글 리스트 테이블 -->
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">글번호</th>
+                        <th scope="col">글제목</th>
+                        <th scope="col">작성자</th>
+                        <th scope="col">작성일자</th>
+                        <th scope="col">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4</td>
+                        <td><a href="detail_page.html" class="text-decoration-none">칭찬합시다</a></td>
+                        <td>임혁진</td>
+                        <td>2020-06-01 01:53:30</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><a href="detail_page.html" class="text-decoration-none">고민상담</a></td>
+                        <td>이순신</td>
+                        <td>2020-06-01 01:53:28</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><a href="detail_page.html" class="text-decoration-none">가입인사</a></td>
+                        <td>홍길동</td>
+                        <td>2020-06-01 01:53:26</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><a href="detail_page.html" class="text-decoration-none">first writing</a></td>
+                        <td>송봉준</td>
+                        <td>2020-06-01 01:53:20</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 글 작성하기 버튼 클릭 시 write_page.html로 이동
+        function writePost() {
+            window.location.href = 'write_page.html';
+        }
+    </script>
+</body>
+</html>

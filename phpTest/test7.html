@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Form Input</h1>
+    <!--
+    <form method="post" action="#">
+        이름:<input type="text" name="uname1" value="kim" disabled /><br />
+
+        비밀번호:<input type="password" name="uname2" value="a" /><br />
+
+        체크박스:<input type="checkbox" name="uname3" value="a" />
+        <input type="checkbox" name="uname3" value="b" />
+        <input type="checkbox" name="uname3" value="c" /><br />
+
+        원형체크:<input type="radio" name="uname4" value="a" />
+        <input type="radio" name="uname4" value="b" />
+        <input type="radio" name="uname4" value="c" /><br />
+
+        가입:<input type="submit" name="uname5" value="가입하기" /><br />
+        <button type="submit">Button Type</button><br />
+
+        버튼:<input type="button" name="uname6" value="클릭" /><br />
+
+        초기화:<input type="reset" name="uname7" value="reset" /><br />
+
+        이메일:<input type="email" name="uname8" value="@gmail.com" /><br />
+
+        파일:<input type="file" name="uname9" /><br />
+    </form>
+    <form method="post" action="#">
+        이메일:<input type="email" name="email" />
+        <button type="submit">이메일전송</button>
+    </form>
+<hr>
+
+    <textarea rows="5" cols="10" name="txt">입력하세요.</textarea></br>
+
+    </hr>
+    <select name="sel" multiple>
+        <option value="a">짜장면</option>
+        <option value="b" selected>짬뽕</option>
+        <option value="c">탕수육</option>
+        <option value="d">냉면</option>
+    </select>
+<hr>
+<form method="post" action="a">
+    사용자 id1: <input type="text" name="id"><br/>
+
+    <label for="uid">사용자 id2: </label>
+    <input type="text" id="uid" placeholder="id입력">
+</form> -->
+    <form method="post" accept="#">
+        Color pick<input type="color" value="#fff" onchange="document.body.style.color=this.value">
+    </form>
+    <hr>
+    <form method="post" action="#">
+        <fieldset>
+            <legend>개인정보입력</legend>
+            이름: <input type="text" name="uname" /><br />
+            주소: <input type="text" name="addr" /><br />
+            핸드폰번호: <input type="text" name="tel" /><br />
+            <button type="submit">전송하기</button>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

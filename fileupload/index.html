@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileUpload</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #4a90e2;
+            text-align: center;
+        }
+        .upload-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        .file-input-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.1em;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+            width: 100%;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #357ABD;
+        }
+        @media (max-width: 600px) {
+            .upload-container {
+                padding: 20px;
+            }
+            .file-input-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            input[type="file"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>파일 업로드</h1>
+        <form method="post" action="upload.php" enctype="multipart/form-data">
+            <div class="file-input-container">
+                <label for="file">파일 선택:</label>
+                <input type="file" id="file" name="userfile"/>
+            </div>
+            <button type="submit">업로드</button>
+        </form>
+    </div>
+</body>
+</html>

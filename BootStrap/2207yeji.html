@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/2207yeji.css">
+</head>
+
+<body>
+  <form action="/signup" method="post">
+    <table>
+      <tr>
+        <td><label for="name">이름</label></td>
+        <td><input type="text" id="name" name="name" required></td>
+      </tr>
+      <tr>
+        <td><label for="resident_number">주민등록번호</label></td>
+        <td>
+          <input type="text1" id="resident_number1" name="resident_number1">
+          -
+          <input type="text2" id="resident_number2" name="resident_number2">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="username">아이디</label></td>
+        <td>
+          <input type="text" id="username" name="username" required>
+          <a href="https://youtu.be/QhOFg_3RV5Q?si=Zrdf55hjCKZrkZ76" class="link-button">korea</a>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="password">비밀번호</label></td>
+        <td>
+          <input type="password" id="password" name="password" required>
+          <p>영문/숫자를 포함한 6자 이상</p>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="confirm_password">비밀번호 재확인</label></td>
+        <td><input type="password" id="confirm_password" name="confirm_password" required></td>
+      </tr>
+      <tr>
+        <td><label for="password_hint">비밀번호 힌트/답변</label></td>
+        <td>
+          <select id="password_hint" name="password_hint">
+            <option value="">선택하세요</option>
+            <option value="1">졸업한 초등학교 이름은?</option>
+            <option value="2">제일 친한 친구의 핸드폰 번호는?</option>
+            <option value="3">아버지 성함은?</option>
+            <option value="4">어머니 성함은?</option>
+            <option value="5">어릴 적 내 별명은?</option>
+            <option value="6">가장 아끼는 물건은?</option>
+            <option value="7">좋아하는 동물은?</option>
+            <option value="8">좋아하는 색깔은?</option>
+            <option value="9">좋아하는 음식은?</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label  for="security_answer">답변</label></td>
+        <td><input type="text" id="security_answer" name="security_answer"></td>
+      </tr>
+      <tr>
+        <td><label for="email_prefix">이메일</label></td>
+        <td>
+          <input type="text1" id="email_prefix1" name="email_prefix1">
+          @
+          <input type="text2" id="email_prefix2" name="email_prefix2">
+          <select id="email_domain" name="email_domain">
+            <option value="">선택하세요</option>
+            <option value="daum.net">daum.net</option>
+            <option value="empal.com">empal.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="hanmail.net">hanmail.net</option>
+            <option value="msn.com">msn.com</option>
+            <option value="naver.com">naver.com</option>
+            <option value="nate.com">nate.com</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="address">집주소</label></td>
+        <td>
+          <input type="text1" id="address1" name="address1">
+          -
+          <input type="text2" id="address2" name="address2">
+          <input type="text3" id="address3" name="address3">
+          <br>
+          <input type="text4" id="address4" name="address4">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="phone">전화번호</label></td>
+        <td>
+          <input type="tel1" id="phone1" name="phone1">
+          -
+          <input type="tel2" id="phone2" name="phone2">
+          -
+          <input type="tel3" id="phone3" name="phone3">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="mobile-phone">핸드폰 번호</label></td>
+        <td>
+          <input type="tel1" id="mobile-phone1" name="mobile-phone1">
+          -
+          <input type="tel2" id="mobile-phone2" name="mobile-phone2">
+          -
+          <input type="tel3" id="mobile-phone3" name="mobile-phone3">
+        </td>
+      </tr>
+      <tr>
+        <td><label for="occupation">직업</label></td>
+        <td>
+          <select id="occupation" name="occupation">
+            <option value="">선택하세요</option>
+            <option value="학생">학생</option>
+            <option value="컴퓨터/인터넷">컴퓨터/인터넷</option>
+            <option value="언론">언론</option>
+            <option value="공무원">공무원</option>
+            <option value="군인">군인</option>
+            <option value="서비스업">서비스업</option>
+            <option value="교육">교육</option>
+            <option value="금융/증권/보험업">금융/증권/보험업</option>
+            <option value="유통업">유통업</option>
+            <option value="예술">예술</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="sns_subscription">메일/SNS 정보 수신</label></td>
+        <td>
+          <input type="radio" id="sns_subscription" name="sns_subscription" value="수신" checked>
+          <label for="sns_subscription">수신</label>
+          <input type="radio" id="sns_subscription" name="sns_subscription" value="수신거부">
+          <label for="sns_subscription">수신거부</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="interests">관심분야</label></td>
+        <td>
+          <input type="checkbox" id="interests" name="interests[]" value="생두">
+          <label for="interests">생두</label>
+          <input type="checkbox" id="interests" name="interests[]" value="원두">
+          <label for="interests">원두</label>
+          <input type="checkbox" id="interests" name="interests[]" value="로스팅">
+          <label for="interests">로스팅</label>
+          <input type="checkbox" id="interests" name="interests[]" value="핸드드립">
+          <label for="interests">핸드드립</label>
+          <input type="checkbox" id="interests" name="interests[]" value="에스프레소">
+          <label for="interests">에스프레소</label>
+          <input type="checkbox" id="interests" name="interests[]" value="창업">
+          <label for="interests">창업</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="signup_path">가입 경로</label></td>
+        <td>
+          <select id="signup_path" name="signup_path">
+            <option value="">선택하세요</option>
+            <option value="네이버검색">네이버검색</option>
+            <option value="다음검색">다음검색</option>
+            <option value="기타검색엔진">기타 검색엔진</option>
+            <option value="카페를 통해">카페를 통해</option>
+            <option value="지인의 소개">지인의 소개</option>
+            <option value="기타">기타</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="disclosure_level">정보 공개 여부</label></td>
+        <td>
+          <select id="disclosure_level" name="disclosure_level">
+            <option value="">선택하세요</option>
+            <option value="모두공개">모두 공개</option>
+            <option value="비공개">비공개</option>
+            <option value="1단계공개">1단계 공개</option>
+            <option value="2단계공개">2단계 공개</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="회원가입">
+          <input type="button" value="취소" onclick="window.location.href='/'">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
