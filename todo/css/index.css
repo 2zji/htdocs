@@ -1,7 +1,7 @@
 /* 전체 배경과 기본 설정 */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    background-color: #eaf6ff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -11,8 +11,8 @@ body {
     color: #333;
 }
 
-/* 회원가입 컨테이너 */
-form {
+/* 로그인 컨테이너 */
+.container {
     background: #fff;
     padding: 20px 30px;
     border-radius: 10px;
@@ -20,13 +20,13 @@ form {
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
+    text-align: center;
 }
 
 /* 헤더 스타일 */
 h2 {
-    text-align: center;
     margin-bottom: 20px;
-    color: #4CAF50;
+    color: #3f51b5;
     font-size: 1.8em;
 }
 
@@ -36,12 +36,12 @@ label {
     margin-bottom: 5px;
     display: block;
     color: #555;
+    text-align: left;
 }
 
 /* 폼 입력 필드 */
 input[type="email"],
-input[type="password"],
-input[type="text"] {
+input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -51,9 +51,9 @@ input[type="text"] {
     font-size: 1em;
 }
 
-/* 버튼 스타일 */
+/* 로그인 버튼 */
 input[type="submit"] {
-    background: #4CAF50;
+    background: #3f51b5;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -65,20 +65,38 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: #45a049;
+    background: #2e3a93;
 }
 
-/* 링크 또는 다른 텍스트 */
+/* 회원가입 링크 */
 a {
-    color: #4CAF50;
+    color: #3f51b5;
     text-decoration: none;
     display: block;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 0.9em;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #45a049;
+    color: #2e3a93;
+}
+
+/* 브레이크포인트 (모바일 대응) */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 20px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    input[type="submit"] {
+        font-size: 0.9em;
+    }
+
+    a {
+        font-size: 0.85em;
+    }
 }

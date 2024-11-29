@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hashed_passwd = password_hash($passwd, PASSWORD_DEFAULT);
 
     // 회원가입 쿼리
-    $sql = "INSERT INTO user (email, passwd, name) VALUES ('$email', '$hashed_passwd', '$name')";
+    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_passwd', '$name')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('회원가입이 완료되었습니다.');</script>";
@@ -35,8 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-    <h2>회원가입</h2>
     <form method="POST" action="signup.php">
+        <h2>회원가입</h2>
         <label for="email">이메일:</label>
         <input type="email" id="email" name="email" required><br><br>
 
