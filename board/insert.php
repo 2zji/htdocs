@@ -30,6 +30,9 @@ if (mysqli_query($conn, $sql)) {
     echo "오류: " . $sql . "<br>" . mysqli_error($conn);
 }
 
+
 // 연결 종료
 mysqli_close($conn);
+
+echo "<meta http-equiv = 'refresh' content ='0; URL=list_page.php'>";
 ?>
