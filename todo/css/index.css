@@ -26,7 +26,7 @@ body {
 /* 헤더 스타일 */
 h2 {
     margin-bottom: 20px;
-    color: #3f51b5;
+    color: #4CAF50;
     font-size: 1.8em;
 }
 
@@ -53,7 +53,7 @@ input[type="password"] {
 
 /* 로그인 버튼 */
 input[type="submit"] {
-    background: #3f51b5;
+    background: #4CAF50;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -70,7 +70,7 @@ input[type="submit"]:hover {
 
 /* 회원가입 링크 */
 a {
-    color: #3f51b5;
+    color: #4CAF50;
     text-decoration: none;
     display: block;
     margin-top: 15px;
@@ -79,7 +79,7 @@ a {
 }
 
 a:hover {
-    color: #2e3a93;
+    color: #45a049;
 }
 
 /* 브레이크포인트 (모바일 대응) */

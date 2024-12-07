@@ -48,7 +48,7 @@ header a:hover {
 
 /* 할 일 추가 버튼 */
 #addTaskBtn {
-    background: #2196F3;
+    background: #def321;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -130,13 +130,13 @@ ul li span {
 
 ul li a {
     text-decoration: none;
-    color: #F44336;
+    color: #36f4bb;
     font-size: 0.9em;
     transition: color 0.3s;
 }
 
 ul li a:hover {
-    color: #D32F2F;
+    color: #36f4bb;
 }
 
 /* 이미지 스타일 */
