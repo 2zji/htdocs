@@ -75,7 +75,7 @@ h1 {
 
 /* 이미지 크기 제한 */
 .image-container img {
-    max-width: 100%; /* 부모 .container를 초과하지 않음 */
+    max-width: 100%;
     width: auto;
     height: auto;
     margin-top: 20px;
