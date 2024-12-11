@@ -1,0 +1,10 @@
+body{
+    font-size: 9pt;
+}
+.center {
+    text-align: center;
+}
+label {
+    text-align: center;
+    font-weight: bold;
+}

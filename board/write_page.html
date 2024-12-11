@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기 페이지</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="width: 600px; background-color: #ff99cc;">
+        <h1 class="text-center mb-4">글쓰기</h1>
+        <form action="insert.php" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="name" class="form-label">이름</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="title" class="form-label">제목</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+
+            <!-- 학년 선택 -->
+            <div class="mb-3">
+                <label class="form-label">학년</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="year1" name="year" value="1학년" required>
+                        <label class="form-check-label" for="year1">1학년</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="year2" name="year" value="2학년" required>
+                        <label class="form-check-label" for="year2">2학년</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="year3" name="year" value="3학년" required>
+                        <label class="form-check-label" for="year3">3학년</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="year4" name="year" value="4학년" required>
+                        <label class="form-check-label" for="year4">4학년</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 휴대폰 선택 -->
+            <div class="mb-3">
+                <label class="form-label">휴대폰</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="skt" name="phone" value="SKT" required>
+                        <label class="form-check-label" for="skt">SKT</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="ktf" name="phone" value="KTF" required>
+                        <label class="form-check-label" for="ktf">KTF</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="lgu" name="phone" value="LGU+" required>
+                        <label class="form-check-label" for="lgu">LGU+</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">내용</label>
+                <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">비밀번호</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="file" class="form-label">파일첨부</label>
+                <input type="file" class="form-control" id="file" name="file">
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-outline-dark">작성완료</button>
+                <button type="reset" class="btn btn-outline-dark">다시입력</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

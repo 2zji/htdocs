@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid gray;
+            width: 700px;
+        }
+
+        body {
+            font-size: 9pt;
+        }
+
+        button {
+            text-align: center;
+        }
+
+        td {
+            padding: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post" action="hi.php">
+        <table>
+            <hr style="color: red;">
+            <tr>
+                <td><b>이름</b></td>
+                <td><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td><b>주민등록번호</b></td>
+                <td><input type="text" name="umy"> - <input type="text" name="umm"></td>
+            </tr>
+            <tr>
+                <td><b>아이디</b></td>
+                <td><input type="text" name="uid"> <a href="https://www.naver.com/">korea</a></td>
+            </tr>
+            <tr>
+                <td><b>비밀번호</b></td>
+                <td><input type="text" name="upass"> 영문/숫자포함 6자 이상</td>
+            </tr>
+            <tr>
+                <td><b>비밀번호 확인</b></td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td><b>비밀번호 힌트/답변</b></td>
+                <td>
+                    <select name="check" id="ch" name="uqus">
+                        <option value="school">선택하세요</option>
+                        <option value="졸업한 초등학교 이름은?">졸업한 초등학교 이름은?</option>
+                        <option value="제일 친한 친구의 핸드폰 번호는?">제일 친한 친구의 핸드폰 번호는?</option>
+                        <option value="아버지 성함은?">아버지 성함은?</option>
+                        <option value="어머니 성함은?">어머니 성함은?</option>
+                        <option value="어릴 적 내 별명은?">어릴 적 내 별명은?</option>
+                        <option value="가장 아끼는 물건은?">가장 아끼는 물건은?</option>
+                        <option value="좋아하는 동물은?">좋아하는 동물은?</option>
+                        <option value="좋아하는 색깔은?">좋아하는 색깔은?</option>
+                        <option value="좋아하는 음식은?">좋아하는 음식은?</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>답변</b></td>
+                <td><input type="text" name="uans"></td>
+            </tr>
+            <tr>
+                <td><b>이메일</b></td>
+                <td><input type="text" name="umeil"> @ <input type="text"name="umeile">
+                    <select name="email" id="e">
+                        <option value="email">직접입력</option>
+                        <option value="email">daum.net</option>
+                        <option value="email">empal.com</option>
+                        <option value="email">gmail.com</option>
+                        <option value="email">hanmail.net</option>
+                        <option value="email">msn.com</option>
+                        <option value="email">naver.com</option>
+                        <option value="email">nate.com</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>주소</b></td>
+                <td><input type="text" name="uada"> - <input type="text" name="uadb"> <input type="text" name="uadc"></td>
+            </tr>
+            <tr>
+                <td><b>전화번호</b></td>
+                <td><input type="text" name="uta"> - <input type="text" name="utb"> - <input type="text" name="utc"></td>
+            </tr>
+            <tr>
+                <td><b>핸드폰 번호</b></td>
+                <td><input type="text" name="utf"> - <input type="text" name="utm"> - <input type="text" name="utl"></td>
+            </tr>
+            <tr>
+                <td><b>직업</b></td>
+                <td><select name="job" id="job1">
+                        <option value="job">선택하세요</option>
+                        <option value="학생">학생</option>
+                        <option value="컴퓨터/인터넷">컴퓨터/인터넷</option>
+                        <option value="언론">언론</option>
+                        <option value="공무원">공무원</option>
+                        <option value="군인">군인</option>
+                        <option value="서비스업">서비스업</option>
+                        <option value="교육">교육</option>
+                        <option value="금융/증권/보험업">금융/증권/보험업</option>
+                        <option value="유통업">유통업</option>
+                        <option value="예술">예술</option>
+                        <option value="의료">의료</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><b>메일/sns정보 수신</b></td>
+                <td><input type="radio" name="a" value="b" checked>수신 <input type="radio" name="a" value="b"
+                    name="usns" checked>수신거부</td>
+            </tr>
+            <tr>
+                <td><b>관심분야</b></td>
+                <td><input type="checkbox" name="check[]" value="생두"> 생두
+                    <input type="checkbox" name="check[]" value="원두"> 원두
+                    <input type="checkbox" name="check[]" value="로스팅"> 로스팅
+                    <input type="checkbox" name="check[]" value="핸드드립"> 핸드드립
+                    <input type="checkbox" name="check[]" value="에스프레소"> 에스프레소
+                    <input type="checkbox" name="check[]" value="창업"> 창업
+                </td>
+            </tr>
+            <tr>
+                <td><b>가입경로</b></td>
+                <td><select name="way" id="w">
+                        <option value="way1">선택하세요</option>
+                        <option value="네이버검색">네이버검색</option>
+                        <option value="다음검색">다음검색</option>
+                        <option value="기타 검색엔진">기타 검색엔진</option>
+                        <option value="카페를 통해">카페를 통해</option>
+                        <option value="지인의 소개">지인의 소개</option>
+                        <option value="기타">기타</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td><b>정보공개여부</b></td>
+                <td><select name="gong" id="gae">
+                        <option value="way2">선택하세요</option>
+                        <option value="모두공개">모두공개</option>
+                        <option value="비공개">비공개</option>
+                        <option value="1단계 공개">1단계 공개</option>
+                        <option value="2단계 공개">2단계 공개</option>
+                    </select></td>
+            </tr>
+        </table>
+        <hr style="color: red;">
+        <button type="submit">선택완료</button>
+    </form>
+</body>
+
+</html>
