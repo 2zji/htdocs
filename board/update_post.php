@@ -32,7 +32,7 @@ $sql = "UPDATE board_posts SET
 if (mysqli_query($conn, $sql)) {
     echo "<script>
             alert('게시물이 수정되었습니다.');
-            window.location.href = 'view_post.php?id=$id'; // 수정된 게시물 보기
+            window.location.href = 'detail_page.php?id=$id'; // 수정된 게시물 보기
           </script>";
 } else {
     echo "<script>
