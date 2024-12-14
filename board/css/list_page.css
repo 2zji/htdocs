@@ -1,3 +1,5 @@
+/* css/list_page.css */
+
 /* 기본 레이아웃 */
 body {
     font-family: Arial, sans-serif;
@@ -26,7 +28,7 @@ body {
 
 .post h2 {
     font-size: 1.5rem;
-    color: #36f4bb;
+    color: #007BFF;
     margin-bottom: 10px;
 }
 
@@ -38,7 +40,7 @@ body {
 
 .post a {
     font-size: 0.9rem;
-    color: #36f4bb;
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -55,7 +57,7 @@ body {
 .notice {
     background-color: #f1f8ff;
     padding: 10px;
-    border: 1px solid #36f4bb;
+    border: 1px solid #007BFF;
     border-radius: 4px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -69,7 +71,7 @@ body {
     margin-top: 20px;
     font-size: 0.9rem;
     color: #fff;
-    background-color: #36f4bb;
+    background-color: #007BFF;
     border: none;
     border-radius: 4px;
     text-decoration: none;
@@ -78,5 +80,5 @@ body {
 }
 
 .button:hover {
-    background-color: #36f4bb;
+    background-color: #0056b3;
 }

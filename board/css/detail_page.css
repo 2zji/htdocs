@@ -25,7 +25,7 @@ h1 {
     font-size: 2rem;
     color: #333;
     margin-bottom: 15px;
-    border-bottom: 2px solid #36f4bb;
+    border-bottom: 2px solid #007BFF;
     padding-bottom: 10px;
 }
 
@@ -46,7 +46,7 @@ h1 {
 /* 첨부파일 링크 */
 .file-link {
     font-size: 0.9rem;
-    color: #36f4bb;
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -61,7 +61,7 @@ h1 {
     margin-top: 20px;
     font-size: 0.9rem;
     color: #fff;
-    background-color: #36f4bb;
+    background-color: #007BFF;
     border: none;
     border-radius: 4px;
     text-decoration: none;
@@ -70,12 +70,12 @@ h1 {
 }
 
 .button:hover {
-    background-color: #36f4bb;
+    background-color: #0056b3;
 }
 
 /* 이미지 크기 제한 */
 .image-container img {
-    max-width: 100%;
+    max-width: 100%; /* 부모 .container를 초과하지 않음 */
     width: auto;
     height: auto;
     margin-top: 20px;

@@ -65,7 +65,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background: #2e3a93;
+    background: #4CAF50;
 }
 
 /* 회원가입 링크 */
@@ -79,7 +79,7 @@ a {
 }
 
 a:hover {
-    color: #45a049;
+    color: #4CAF50;
 }
 
 /* 브레이크포인트 (모바일 대응) */

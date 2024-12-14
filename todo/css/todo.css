@@ -48,7 +48,7 @@ header a:hover {
 
 /* 할 일 추가 버튼 */
 #addTaskBtn {
-    background: #def321;
+    background: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -59,7 +59,7 @@ header a:hover {
 }
 
 #addTaskBtn:hover {
-    background: #1976D2;
+    background: #4CAF50;
 }
 
 /* 할 일 추가 폼 */
@@ -130,13 +130,13 @@ ul li span {
 
 ul li a {
     text-decoration: none;
-    color: #36f4bb;
+    color: #4CAF50;
     font-size: 0.9em;
     transition: color 0.3s;
 }
 
 ul li a:hover {
-    color: #36f4bb;
+    color: #4CAF50;
 }
 
 /* 이미지 스타일 */
@@ -145,4 +145,66 @@ ul li img {
     max-height: 50px;
     border-radius: 5px;
     margin-left: 10px;
+}
+
+/* 버튼 공통 스타일 */
+.buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+}
+
+/* 삭제 버튼 스타일 */
+.buttons .btn-delete {
+    background-color: #4CAF50;
+}
+
+.buttons .btn-delete:hover {
+    background-color: #4CAF50;
+}
+
+/* 돌아가기 버튼 스타일 */
+.buttons .btn-back {
+    background-color: #4CAF50;
+}
+
+.buttons .btn-back:hover {
+    background-color: #4CAF50;
+}
+
+/* 버튼 공통 스타일 */
+.task-buttons .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+/* 상세보기 버튼 스타일 */
+.task-buttons .btn-view {
+    background-color: #4CAF50;
+}
+
+.task-buttons .btn-view:hover {
+    background-color: #4CAF50;
+}
+
+/* 삭제 버튼 스타일 */
+.task-buttons .btn-delete {
+    background-color: #4CAF50;
+}
+
+.task-buttons .btn-delete:hover {
+    background-color: #4CAF50;
 }

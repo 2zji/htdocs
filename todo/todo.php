@@ -3,7 +3,7 @@ session_start();
 
 // 로그인 상태 확인
 if (!isset($_SESSION['userid'])) {
-    header("Location: index.php"); // 로그인되지 않은 경우, 로그인 페이지로 리다이렉트
+    header("Location: index.php");
     exit();
 }
 
@@ -14,12 +14,12 @@ include('./db_conn.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
-    $userid = $_SESSION['userid']; // 로그인된 사용자의 ID를 사용
+    $userid = $_SESSION['userid'];
 
     // 이미지 처리
     $image_path = null;
     if (isset($_FILES['task_image']) && $_FILES['task_image']['error'] == UPLOAD_ERR_OK) {
-        $upload_dir = "uploads/"; // 업로드 폴더 경로
+        $upload_dir = "uploads/";
         $image_name = time() . "_" . basename($_FILES['task_image']['name']);
         $target_file = $upload_dir . $image_name;
 
@@ -89,12 +89,17 @@ mysqli_close($conn);
         <ul>
             <?php foreach ($tasks as $task): ?>
                 <li>
-                    <?php if ($task['image_path']): ?>
-                        <img src="<?= htmlspecialchars($task['image_path']) ?>" alt="Task Image" style="max-width: 100px; max-height: 100px;">
-                    <?php endif; ?>
-                    <strong><?= htmlspecialchars($task['title']) ?></strong> - <?= htmlspecialchars($task['description']) ?>
-                    <span>(상태: <?= htmlspecialchars($task['status']) ?>)</span>
-                    <a href="delete_task.php?id=<?= $task['id'] ?>">삭제</a>
+                    <strong><?= htmlspecialchars($task['title']) ?></strong>
+                    <div class="task-buttons">
+                        <form method="GET" action="view_task.php" style="display: inline;">
+                            <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                            <button type="submit" class="btn btn-view">상세보기</button>
+                        </form>
+                        <form method="GET" action="delete_task.php" style="display: inline;">
+                            <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                            <button type="submit" class="btn btn-delete">삭제</button>
+                        </form>
+                    </div>
                 </li>
             <?php endforeach; ?>
         </ul>

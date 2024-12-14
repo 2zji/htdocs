@@ -8,10 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow-lg p-4" style="width: 600px; background-color: #ff99cc;">
+    <div class="card shadow-lg p-4" style="width: 600px; background-color: #9acafd;">
         <h1 class="text-center mb-4">비밀번호 확인</h1>
         <form action="edit_password_check.php" method="POST">
-            <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"> <!-- 게시물 ID 전달 -->
+            <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
             <div class="mb-3">
                 <label for="password" class="form-label">비밀번호</label>
                 <input type="password" class="form-control" id="password" name="password" required>

@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light d-flex justify-content-center align-items-center vh-100">
-    <div class="card shadow-lg p-4" style="width: 600px; background-color: #ff99cc;">
+    <div class="card shadow-lg p-4" style="width: 600px; background-color: #9acafd;">
         <h1 class="text-center mb-4">삭제 비밀번호 확인</h1>
         <form action="delete_passwd_check.php?id=<?php echo $_GET['id']; ?>" method="POST">
             <div class="mb-3">
