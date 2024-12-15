@@ -208,16 +208,16 @@ html {
 .carouselBest .carousel-item .card,
 .carouselGoods .carousel-item .card {
     width: calc(100% - 40px); /* 전체 화면 너비에서 좌우 여백 20px씩 제외 */
-    margin-left: 20px; /* 좌측 여백 추가 */
-    margin-right: 20px; /* 우측 여백 추가 */
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 /* carouselNew 안의 card 너비 및 여백 설정 */
 .carouselNew .carousel-item .card {
     width: 100%; /* carouselNew 안의 카드는 전체 너비를 차지하도록 설정 */
-    padding-left: 0; /* 좌우 패딩 없음 */
+    padding-left: 0;
     padding-right: 0;
-    margin-left: 0; /* 좌우 여백 없음 */
+    margin-left: 0;
     margin-right: 0;
 }
 
