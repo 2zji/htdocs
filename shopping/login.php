@@ -1,7 +1,8 @@
+<!--로그인-->
 <?php
-    include('./db_conn.php');
+include('./db_conn.php');
 
-    
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -87,4 +88,5 @@
         <p>© 2024 YEA. All Rights Reserved.</p>
     </footer>
 </body>
+
 </html>

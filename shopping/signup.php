@@ -1,5 +1,6 @@
+<!--회원가입-->
 <?php
-    include('./db_conn.php');
+include('./db_conn.php');
 
 ?>
 <!DOCTYPE html>
@@ -86,4 +87,5 @@
         <p>© 2024 YEA. All Rights Reserved.</p>
     </footer>
 </body>
+
 </html>
