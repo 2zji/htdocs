@@ -1,3 +1,4 @@
+<!--db 연결 파일-->
 <?php
     $servername = "localhost";
     $username = "root";
