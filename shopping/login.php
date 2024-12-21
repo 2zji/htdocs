@@ -49,6 +49,8 @@ include('./db_conn.php');
         </form>
     </div>
 
+    <hr style="border: solid 1px rgb(213, 64, 0)">
+
     <!--로그인 폼-->
     <div class="container my-5">
         <div class="row justify-content-center">
