@@ -22,11 +22,13 @@ include('./db_conn.php');
     <div id="headerWrapper">
         <div id="headerBox" class="header">
             <div id="logo">
-                <img src="pic/logo.png" alt="YEA." id="YEA">
+                <a href="index.html">
+                    <img src="pic/logo.png" alt="YEA." id="YEA">
+                </a>
             </div>
             <div class="head">
                 <img src="pic/header_basket.png" id="head">
-                <a href="login.html" target="_blank">
+                <a href="login.html">
                     <img src="pic/login.png" id="head">
                 </a>
             </div>
