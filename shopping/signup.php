@@ -56,13 +56,28 @@ include('./db_conn.php');
                 <h2 class="text-center mb-4">회원가입</h2>
                 <form action="login_process.php" method="POST">
                     <div class="mb-3">
+                        <label for="id" class="form-label">아이디</label>
+                        <input type="id" class="form-control" id="id" name="id"
+                            placeholder="아이디를 입력하세요" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" id="id" name="id"
+                            placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                    <div class="mb-3">
                         <label for="email" class="form-label">이메일</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="password" name="password"
-                            placeholder="비밀번호를 입력하세요" required>
+                        <label for="address" class="form-label">전화번호</label>
+                        <input type="address" class="form-control" id="address" name="address"
+                            placeholder="주소를 입력하세요" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="home" class="form-label">주소</label>
+                        <input type="phone" class="form-control" id="phone" name="phone"
+                            placeholder="전화번호를 입력하세요" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-danger">회원가입</button>
