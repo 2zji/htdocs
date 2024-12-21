@@ -69,7 +69,7 @@ include('./db_conn.php');
                     </div>
                 </form>
                 <div class="text-center mt-3">
-                    <p>계정이 없으신가요? <a href="signup.html" class="text-danger">회원가입</a></p>
+                    <p>계정이 없으신가요? <a href="signup.php" class="text-danger">회원가입</a></p>
                 </div>
             </div>
         </div>
