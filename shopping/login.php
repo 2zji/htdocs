@@ -1,8 +1,6 @@
 <!--로그인-->
 <?php
 include('./db_conn.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,7 +18,7 @@ include('./db_conn.php');
 </head>
 
 <body>
-
+    <!--Header-->
     <div id="headerWrapper">
         <div id="headerBox" class="header">
             <div id="logo">
@@ -32,7 +30,6 @@ include('./db_conn.php');
                     <img src="pic/login.png" id="head">
                 </a>
             </div>
-
         </div>
 
         <div id="headerName" class="menu">
@@ -44,6 +41,7 @@ include('./db_conn.php');
         </div>
     </div>
 
+    <!--검색창-->
     <div class="search-container">
         <form class="search-box" action="/search" method="GET">
             <input type="text" name="query" class="search-input" placeholder="여기에 입력하세요">
@@ -51,8 +49,35 @@ include('./db_conn.php');
         </form>
     </div>
 
+    <!--로그인 폼-->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4">로그인</h2>
+                <form action="login_process.php" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">이메일</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-danger">로그인</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <p>계정이 없으신가요? <a href="signup.html" class="text-danger">회원가입</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <hr style="border: solid 1px rgb(213, 64, 0)">
 
+    <!--정보 및 이용약관 등-->
     <footer class="main-footer">
         <div class="container">
             <div class="row">
