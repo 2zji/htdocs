@@ -188,7 +188,6 @@ html {
     max-height: 80vh; /* 최대 높이 설정 */
 }
 
-/* carousel-item의 패딩 조정 */
 .carousel-item {
     padding-left: 20px;
     padding-right: 20px;
@@ -204,23 +203,21 @@ html {
     margin-left: -40px !important;
     margin-right: -40px !important;
 }
-/* carouselBest와 carouselGoods 안의 card 너비 및 여백 설정 */
+
 .carouselBest .carousel-item .card,
 .carouselGoods .carousel-item .card {
-    width: calc(100% - 40px); /* 전체 화면 너비에서 좌우 여백 20px씩 제외 */
+    width: calc(100% - 40px);
     margin-left: 20px;
     margin-right: 20px;
 }
 
-/* carouselNew 안의 card 너비 및 여백 설정 */
 .carouselNew .carousel-item .card {
-    width: 100%; /* carouselNew 안의 카드는 전체 너비를 차지하도록 설정 */
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
     margin-right: 0;
 }
-
 
 .under img {
     width: 100px;
