@@ -7,12 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
     $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
 
     // 비밀번호 해시 처리
     $hashed_passwd = password_hash($passwd, PASSWORD_DEFAULT);
 
     // 회원가입 쿼리
-    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_passwd', '$name')";
+    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_passwd', '$name', '$phone', '$address')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('회원가입이 완료되었습니다.');</script>";
