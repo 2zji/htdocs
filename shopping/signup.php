@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('회원가입이 완료되었습니다.');</script>";
-        echo "<meta http-equiv='refresh' content='0;URL=index.php'>"; // 로그인 페이지로 리다이렉트
+        echo "<meta http-equiv='refresh' content='0;URL=login.php'>"; // 로그인 페이지로 리다이렉트
         exit();
     } else {
         echo "<script>alert('회원가입 실패: " . mysqli_error($conn) . "');</script>";
