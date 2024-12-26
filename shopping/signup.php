@@ -5,16 +5,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include('./db_conn.php');
 
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
     // 비밀번호 해시 처리
-    $hashed_passwd = password_hash($passwd, PASSWORD_DEFAULT);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     // 회원가입 쿼리
-    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_passwd', '$name', '$phone', '$address')";
+    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_password', '$id', '$phone', '$address')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('회원가입이 완료되었습니다.');</script>";
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="id" name="id"
+                        <input type="password" class="form-control" id="id" name="password"
                             placeholder="비밀번호를 입력하세요" required>
                     </div>
                     <div class="mb-3">
