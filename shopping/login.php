@@ -1,6 +1,34 @@
 <!--로그인-->
 <?php
-include('./db_conn.php');
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // 데이터베이스 연결
+    include('./db_conn.php');
+
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+    // 이메일로 사용자 정보 조회
+    $sql = "SELECT passwd FROM tablename WHERE email = '$email'";   //db만들고 테이블 이름 변경
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+
+        // 비밀번호 확인
+        if (password_verify($password, $row['passwd'])) {
+            echo "<script>alert('로그인 성공!');</script>";
+            echo "<meta http-equiv='refresh' content='0;URL=index.php'>"; // 메인 페이지로 리다이렉트
+            exit();
+        } else {
+            echo "<script>alert('비밀번호가 잘못되었습니다.');</script>";
+        }
+    } else {
+        echo "<script>alert('등록된 이메일이 없습니다.');</script>";
+    }
+
+    // 데이터베이스 연결 종료
+    mysqli_close($conn);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -58,7 +86,7 @@ include('./db_conn.php');
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center mb-4">로그인</h2>
-                <form action="login_process.php" method="POST">
+                <form action="index.php" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label">이메일</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>

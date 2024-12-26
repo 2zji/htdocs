@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="head">
                 <img src="pic/header_basket.png" id="head">
-                <a href="login.html">
+                <a href="login.php">
                     <img src="pic/login.png" id="head">
                 </a>
             </div>
@@ -86,6 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="col-md-6">
                 <h2 class="text-center mb-4">회원가입</h2>
                 <form action="signup.php" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">이름</label>
+                        <input type="name" class="form-control" id="name" name="name"
+                            placeholder="아이디를 입력하세요" required>
+                    </div>
                     <div class="mb-3">
                         <label for="id" class="form-label">아이디</label>
                         <input type="id" class="form-control" id="id" name="id"
