@@ -8,6 +8,14 @@ body {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none !important; 
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
 *,
 *::before,
 *::after {
@@ -65,12 +73,18 @@ body {
     height: 30px !important;
 }
 
-.menu p {
-    cursor: pointer;
-    margin: 0 10px;
+/* 메뉴 스타일 */
+.menu a {
+    display: inline-block;
+    margin: 0 15px;
+    text-decoration: none;
+    /* 밑줄 제거 */
+    color: black;
+    font-size: 16px;
+    padding: 5px 10px;
 }
 
-.menu p:hover {
+.menu a:hover {
     color: rgb(213, 64, 0);
 }
 /* 검색창 스타일 */
