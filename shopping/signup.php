@@ -5,20 +5,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include('./db_conn.php');
 
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
     $id = mysqli_real_escape_string($conn, $_POST['id']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
 
     // 비밀번호 해시 처리
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $hashed_passwd = password_hash($passwd, PASSWORD_DEFAULT);
 
     // 회원가입 쿼리
-    $sql = "INSERT INTO todo_user (email, passwd, name) VALUES ('$email', '$hashed_password', '$id', '$phone', '$address')";
+    $sql = "INSERT INTO yea_user (email, passwd, name, phone, address) VALUES ('$email', '$hashed_passwd', '$id', '$phone', '$address')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('회원가입이 완료되었습니다.');</script>";
-        echo "<meta http-equiv='refresh' content='0;URL=login.php'>"; // 로그인 페이지로 리다이렉트
+        echo "<meta http-equiv='refresh' content='0;URL=login.php'>";
         exit();
     } else {
         echo "<script>alert('회원가입 실패: " . mysqli_error($conn) . "');</script>";
@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             placeholder="아이디를 입력하세요" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="id" name="password"
+                        <label for="passwd" class="form-label">비밀번호</label>
+                        <input type="passwd" class="form-control" id="id" name="passwd"
                             placeholder="비밀번호를 입력하세요" required>
                     </div>
                     <div class="mb-3">

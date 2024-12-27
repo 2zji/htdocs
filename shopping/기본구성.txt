@@ -22,7 +22,7 @@
             </div>
             <div class="head">
                 <img src="pic/header_basket.png" id="head">
-                <a href="login.html" target="_blank">
+                <a href="login.php" target="_blank">
                     <img src="pic/login.png" id="head">
                 </a>
             </div>

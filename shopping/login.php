@@ -5,20 +5,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include('./db_conn.php');
 
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
 
     // 이메일로 사용자 정보 조회
-    $sql = "SELECT passwd FROM tablename WHERE email = '$email'";   //db만들고 테이블 이름 변경
+    $sql = "SELECT passwd FROM yea_user WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
         // 비밀번호 확인
-        if (password_verify($password, $row['passwd'])) {
+        if (password_verify($passwd, $row['passwd'])) {
+            session_start();
+            $_SESSION['email'] = $email; // 세션에 사용자 정보 저장
             echo "<script>alert('로그인 성공!');</script>";
-            echo "<meta http-equiv='refresh' content='0;URL=index.php'>"; // 메인 페이지로 리다이렉트
-            exit();
+            header("Location: index.html"); // index.html로 리다이렉트
+            exit(); // 추가 실행 방지
         } else {
             echo "<script>alert('비밀번호가 잘못되었습니다.');</script>";
         }
@@ -56,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="head">
                 <img src="pic/header_basket.png" id="head">
-                <a href="login.html">
+                <a href="login.php">
                     <img src="pic/login.png" id="head">
                 </a>
             </div>
@@ -86,15 +88,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center mb-4">로그인</h2>
-                <form action="index.php" method="POST">
+                <form action="login.php" method="POST">
                     <div class="mb-3">
                         <label for="email" class="form-label">이메일</label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="이메일을 입력하세요" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">비밀번호</label>
-                        <input type="password" class="form-control" id="password" name="password"
-                            placeholder="비밀번호를 입력하세요" required>
+                        <label for="passwd" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" id="passwd" name="passwd" placeholder="비밀번호를 입력하세요" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-danger">로그인</button>
