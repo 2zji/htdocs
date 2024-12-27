@@ -8,11 +8,7 @@ body {
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none !important; 
-}
-
-a:hover {
+.gotong{
     text-decoration: none !important;
 }
 
@@ -87,6 +83,7 @@ a:hover {
 .menu a:hover {
     color: rgb(213, 64, 0);
 }
+
 /* 검색창 스타일 */
 .search-container {
     display: flex;

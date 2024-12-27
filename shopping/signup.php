@@ -62,11 +62,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div id="headerName" class="menu">
-            <p>프로모션</p>
-            <p>컨텐츠</p>
-            <p>스타일</p>
-            <p>추천</p>
-            <p>브랜드 소개</p>
+            <a href="qna.html" class="gotong">
+                <p>Q&A</p>
+            </a>
+            <a href="contents.html" class="gotong">
+                <p>컨텐츠</p>
+            </a>
+            <a href="style.html" class="gotong">
+                <p>스타일</p>
+            </a>
+            <a href="recommend.html" class="gotong">
+                <p>추천</p>
+            </a>
+            <a href="brand.html" class="gotong">
+                <p>브랜드 소개</p>
+            </a>
         </div>
     </div>
 
