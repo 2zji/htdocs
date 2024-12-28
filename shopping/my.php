@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -63,9 +66,9 @@
                 <div class="col-md-4">
                     <h4>정보</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="gotong">이용약관</a></li>
-                        <li><a href="#" class="gotong">개인정보 취급방침</a></li>
-                        <li><a href="#" class="gotong">문의하기</a></li>
+                        <<li><a href="#" class="gotong">이용약관</a></li>
+                            <li><a href="#" class="gotong">개인정보 취급방침</a></li>
+                            <li><a href="#" class="gotong">문의하기</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">

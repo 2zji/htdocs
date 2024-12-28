@@ -127,28 +127,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="col-md-4">
                     <h4>정보</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">이용약관</a></li>
-                        <li><a href="#">개인정보 취급방침</a></li>
-                        <li><a href="#">문의하기</a></li>
+                        <li><a href="#" class="gotong">이용약관</a></li>
+                        <li><a href="#" class="gotong">개인정보 취급방침</a></li>
+                        <li><a href="#" class="gotong">문의하기</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h4>계정</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">마이 계정</a></li>
-                        <li><a href="#">주문 내역</a></li>
-                        <li><a href="#">배송 조회</a></li>
+                        <li><a href="#" class="gotong">마이 계정</a></li>
+                        <li><a href="#" class="gotong">주문 내역</a></li>
+                        <li><a href="#" class="gotong">배송 조회</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h4>연락처</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#">미림마이스터고등학교</a></li>
-                        <li><a href="#">전화: 010-8500-2651</a></li>
-                        <li><a href="#">이메일: s2313@e-mirim.hs.kr</a></li>
-                        <li><a href="#">페이스북</a></li>
-                        <li><a href="#">인스타그램</a></li>
-                        <li><a href="#">트위터</a></li>
+                        <li><a href="#" class="gotong">미림마이스터고등학교</a></li>
+                        <li><a href="#" class="gotong">전화: 010-8500-2651</a></li>
+                        <li><a href="#" class="gotong">이메일: s2313@e-mirim.hs.kr</a></li>
+                        <li><a href="#" class="gotong">페이스북</a></li>
+                        <li><a href="#" class="gotong">인스타그램</a></li>
+                        <li><a href="#" class="gotong">트위터</a></li>
                     </ul>
                 </div>
             </div>
