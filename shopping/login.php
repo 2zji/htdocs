@@ -4,23 +4,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 데이터베이스 연결
     include('./db_conn.php');
 
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $passwd = mysqli_real_escape_string($conn, $_POST['passwd']);
+    // 사용자 입력 값
+    $email = $_POST['email'];
+    $passwd = $_POST['passwd'];
 
-    // 이메일로 사용자 정보 조회
-    $sql = "SELECT passwd FROM yea_user WHERE email = '$email'";
-    $result = mysqli_query($conn, $sql);
+    // 이메일로 사용자 정보 조회 (Prepared Statement 사용)
+    $sql = "SELECT passwd FROM yea_user WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
 
         // 비밀번호 확인
         if (password_verify($passwd, $row['passwd'])) {
             session_start();
-            $_SESSION['email'] = $email; // 세션에 사용자 정보 저장
+            $_SESSION['email'] = $email; // 이메일 세션 저장
+            $_SESSION['loggedin'] = true; // 로그인 상태 세션 저장
             echo "<script>alert('로그인 성공!');</script>";
-            header("Location: index.html"); // index.html로 리다이렉트
-            exit(); // 추가 실행 방지
+            header("Location: index.php"); // index.php로 리다이렉트
+            exit();
         } else {
             echo "<script>alert('비밀번호가 잘못되었습니다.');</script>";
         }
@@ -29,9 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // 데이터베이스 연결 종료
-    mysqli_close($conn);
+    $stmt->close();
+    $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ko">
 
