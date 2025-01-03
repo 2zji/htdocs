@@ -26,7 +26,7 @@ include('./db_conn.php');
             </div>
             <div class="head">
                 <img src="pic/header_basket.png" id="head">
-                <a href="login.php" target="_blank">
+                <a href="my.php" target="_blank">
                     <img src="pic/login.png" id="head">
                 </a>
             </div>

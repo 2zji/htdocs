@@ -1,4 +1,11 @@
 <!--메인-->
+<?php
+session_start(); // 세션 시작
+
+// 로그인 여부 확인
+$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
