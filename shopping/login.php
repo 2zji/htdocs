@@ -22,6 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($passwd, $row['passwd'])) {
             session_start();
             $_SESSION['email'] = $email; // 이메일 세션 저장
+
+            // 이름 조회
+            $name_sql = "SELECT name FROM yea_user WHERE email = ?";
+            $name_stmt = $conn->prepare($name_sql);
+            $name_stmt->bind_param("s", $email);
+            $name_stmt->execute();
+            $name_result = $name_stmt->get_result();
+
+            if ($name_result->num_rows > 0) {
+                $name_row = $name_result->fetch_assoc();
+                $_SESSION['name'] = $name_row['name']; // 이름 세션 저장
+            }
+
             $_SESSION['loggedin'] = true; // 로그인 상태 세션 저장
             echo "<script>alert('로그인 성공!');</script>";
             header("Location: index.php"); // index.php로 리다이렉트
@@ -29,8 +42,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "<script>alert('비밀번호가 잘못되었습니다.');</script>";
         }
-    } else {
-        echo "<script>alert('등록된 이메일이 없습니다.');</script>";
     }
 
     // 데이터베이스 연결 종료

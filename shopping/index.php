@@ -2,8 +2,8 @@
 <?php
 session_start(); // 세션 시작
 
-// 로그인 여부 확인
-$isLoggedIn = isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true;
+$is_logged_in = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
+$name = $is_logged_in ? $_SESSION['name'] : null; 
 ?>
 
 <!DOCTYPE html>
