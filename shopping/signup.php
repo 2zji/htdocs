@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div id="headerWrapper">
         <div id="headerBox" class="header">
             <div id="logo">
-                <a href="index.html">
+                <a href="index.php">
                     <img src="pic/logo.png" alt="YEA." id="YEA">
                 </a>
 
