@@ -2,17 +2,21 @@
 <?php
 session_start(); // 세션 시작
 
+// 로그인 상태 확인
 $is_logged_in = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
 $name = $is_logged_in ? $_SESSION['name'] : null;
 
+// POST 요청이 들어왔을 때 처리
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $name = $_POST['name'] ?? '';
-} else {
-  $name = '';
+  if (isset($_POST['name'])) {
+    // 이름 입력 처리
+    $_SESSION['name'] = $_POST['name'];
+    $_SESSION['loggedin'] = true; // 로그인 상태로 설정
+    $name = $_POST['name']; // 입력된 이름
+  } else {
+    echo "<p>Please enter your name.</p>";
+  }
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
