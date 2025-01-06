@@ -4,7 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 데이터베이스 연결
     include('./db_conn.php');
 
-    // 사용자 입력 값
     $email = $_POST['email'];
     $passwd = $_POST['passwd'];
 

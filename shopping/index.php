@@ -1,6 +1,6 @@
 <!--메인-->
 <?php
-session_start(); // 세션 시작
+session_start();
 
 // 로그인 상태 확인
 $is_logged_in = isset($_SESSION['loggedin']) && $_SESSION['loggedin'];
