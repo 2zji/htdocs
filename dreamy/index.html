@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css"/>
+    <title>Dream Diary</title>
+</head>
+<body>
+    <header>
+        <h1>Dream Diary</h1>
+        <p>오늘 꾼 꿈은 무엇인가요? 저에게도 공유해주세요...♪</p>
+    </header>
+    <main>
+        <h2>오늘의 꿈</h2>
+        <form action="/save_dream" method="POST">
+            <label for="dream">꿈 내용:</label>
+            <textarea id="dream" name="dream" placeholder="여기에 당신의 꿈을 적어보세요...♬"></textarea>
+            <button type="submit">저장</button>
+        </form>
+    </main>
+</body>
+</html>
