@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login.css"/>
-    <title>Document</title>
+    <title>Dream Diary</title>
 </head>
 <body>
     <header>
@@ -12,8 +12,22 @@
         <p>꿈일기에 오신 것을 환영합니다...♪</p>
     </header>
     <main>
-        <button type="submit">로그인</button>
-    <button type="submit">회원가입</button>
+        <section class="login-form">
+            <h2>로그인</h2>
+            <form action="/login" method="POST">
+                <label for="username">아이디:</label>
+                <input type="text" id="username" name="username" required placeholder="아이디를 입력하세요">
+                
+                <label for="password">비밀번호:</label>
+                <input type="password" id="password" name="password" required placeholder="비밀번호를 입력하세요">
+                
+                <button type="submit">로그인</button>
+            </form>
+        </section>
+
+        <section class="signup-link">
+            <p>아직 계정이 없으신가요? <a href="signup.html">회원가입</a></p>
+        </section>
     </main>
 </body>
 </html>
