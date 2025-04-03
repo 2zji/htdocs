@@ -40,7 +40,7 @@ $fname="output.txt";
 $fp=fopen($fname, "w");
 $content="Mike goes to home";
 fwrite($fp, $content);
-echo "파일저장완료!!"
+echo "파일저장완료!!";
 fclose($fp);
 ?>
 
