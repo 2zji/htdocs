@@ -13,7 +13,7 @@ $task_id = $_POST['task_id'];
 $user_id = $_SESSION['user_id'];
 
 // 상태 업데이트 쿼리
-$sql = "UPDATE tasks SET status = 'completed', completed_at = NOW() WHERE id = '$task_id' AND userid = '$user_id'";
+$sql = "UPDATE todo SET status = 'completed', completed_at = NOW() WHERE id = '$task_id' AND user_id = '$user_id'";
 if (mysqli_query($conn, $sql)) {
     echo "<script>alert('할 일이 완료되었습니다.');</script>";
 } else {
@@ -22,4 +22,3 @@ if (mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 echo "<meta http-equiv='refresh' content='0;URL=todo.php'>";
-?>

@@ -2,7 +2,7 @@
 session_start();
 
 // 로그인 상태 확인
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit();
 }
@@ -14,7 +14,7 @@ include('./db_conn.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
     $title = mysqli_real_escape_string($conn, $_POST['title']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
-    $userid = $_SESSION['userid'];
+    $userid = $_SESSION['user_id'];  // 로그인된 사용자 ID
 
     // 이미지 처리
     $image_path = null;
@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
         $image_name = time() . "_" . basename($_FILES['task_image']['name']);
         $target_file = $upload_dir . $image_name;
 
+        // 이미지 파일을 지정된 경로에 저장
         if (move_uploaded_file($_FILES['task_image']['tmp_name'], $target_file)) {
             $image_path = $target_file;
         } else {
@@ -30,9 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
         }
     }
 
-    // 데이터베이스에 추가
-    $sql = "INSERT INTO tasks (userid, title, description, status, priority, image_path) 
-            VALUES ('$userid', '$title', '$description', 'pending', 'medium', '$image_path')";
+    // 데이터베이스에 할 일 추가
+    $sql = "INSERT INTO todo (user_id, name, title, description, status, priority, image_path) 
+            VALUES ('$userid', '{$_SESSION['username']}', '$title', '$description', 'pending', 'medium', '$image_path')";
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('할 일이 추가되었습니다.');</script>";
@@ -42,21 +43,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_task'])) {
 }
 
 // 할 일 목록 가져오기
-$sql = "SELECT * FROM tasks WHERE userid = '{$_SESSION['userid']}' ORDER BY created_at DESC";
+$sql = "SELECT * FROM todo WHERE user_id = '{$_SESSION['user_id']}' ORDER BY created_at DESC";
 $result = mysqli_query($conn, $sql);
-$tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if ($result) {
+    $tasks = mysqli_fetch_all($result, MYSQLI_ASSOC);
+} else {
+    echo "<script>alert('할 일 목록 조회 실패: " . mysqli_error($conn) . "');</script>";
+    $tasks = [];
+}
 
 mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>할 일 관리</title>
     <link rel="stylesheet" href="css/todo.css">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -113,4 +122,5 @@ mysqli_close($conn);
         }
     </script>
 </body>
+
 </html>

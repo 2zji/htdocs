@@ -10,7 +10,7 @@ if (!isset($_GET['id'])) {
 $task_id = mysqli_real_escape_string($conn, $_GET['id']);
 
 // 해당 ID의 할 일 데이터 가져오기
-$sql = "SELECT * FROM tasks WHERE id = '$task_id' AND userid = '{$_SESSION['userid']}'";
+$sql = "SELECT * FROM todo WHERE id = '$task_id' AND user_id = '{$_SESSION['user_id']}'";
 $result = mysqli_query($conn, $sql);
 
 if (!$result || mysqli_num_rows($result) === 0) {
@@ -23,11 +23,13 @@ mysqli_close($conn);
 
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <title>상세보기</title>
     <link rel="stylesheet" href="css/todo.css">
 </head>
+
 <body>
     <div class="container">
         <h2><?= htmlspecialchars($task['title']) ?></h2>
@@ -44,4 +46,5 @@ mysqli_close($conn);
         </div>
     </div>
 </body>
+
 </html>

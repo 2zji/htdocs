@@ -2,7 +2,7 @@
 session_start();
 
 // 로그인 상태 확인
-if (!isset($_SESSION['userid'])) {
+if (!isset($_SESSION['user_id'])) {
     header("Location: index.php"); // 로그인되지 않은 경우, 로그인 페이지로 리다이렉트
     exit();
 }
@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
     $taskId = (int) $_GET['id']; // 할 일 ID
 
     // 해당 ID의 할 일 삭제
-    $sql = "DELETE FROM tasks WHERE id = $taskId AND userid = '{$_SESSION['userid']}'";
+    $sql = "DELETE FROM tasks WHERE id = $taskId AND user_id = '{$_SESSION['user_id']}'";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('할 일이 삭제되었습니다.');</script>";
     } else {

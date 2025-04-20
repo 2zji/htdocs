@@ -25,10 +25,13 @@
         // 게시물 출력
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
+                // views 값이 없을 경우 0으로 처리
+                $views = isset($row['views']) ? $row['views'] : 0;
+
                 echo "<div class='post'>";
                 echo "<h2>" . htmlspecialchars($row['title']) . "</h2>";
                 echo "<p>작성자: " . htmlspecialchars($row['name']) . "</p>";
-                echo "<p>조회수: " . htmlspecialchars($row['views']) . "</p>"; // 조회수 표시
+                echo "<p>조회수: " . htmlspecialchars($views) . "</p>"; // 조회수 표시
                 echo "<a href='detail_page.php?id=" . $row['id'] . "'>상세보기</a>";
                 echo "</div>";
             }
@@ -39,6 +42,7 @@
         // 연결 종료
         mysqli_close($conn);
         ?>
+
     </div>
 </body>
 
